@@ -1,0 +1,140 @@
+{
+  "batch": {
+    "batch_no": "API-2026-014",
+    "product": "Veridexol (fictional API)",
+    "manufacturing_complete": true,
+    "steps": [
+      "Charge approved starting material and solvent into the reactor",
+      "Reaction and work-up (per approved batch record)",
+      "Crystallisation and filtration",
+      "Drying of the wet cake in dryer D-02",
+      "In-process check: loss on drying (LOD) of the dried intermediate",
+      "Milling, final testing and packing"
+    ]
+  },
+  "raw_material": {
+    "name": "Starting material SM-A",
+    "lot": "SMA-0731",
+    "supplier": "Alpha Chemicals (fictional supplier)",
+    "coa_received": true,
+    "qc_status": "Approved"
+  },
+  "in_process": {
+    "test": "Loss on drying (LOD) of dried intermediate",
+    "limit_max": 0.5,
+    "unit": "% w/w, illustrative number",
+    "result": 0.9
+  },
+  "deviation": {
+    "id": "DEV-2026-007",
+    "title": "Intermediate LOD above limit after drying, batch API-2026-014",
+    "date_detected": "2026-09-22",
+    "detected_by": "QC analyst, in-process lab",
+    "area": "Drying area, dryer D-02",
+    "description": "The in-process LOD of the dried intermediate was 0.9%, above the batch record limit of not more than 0.5%.",
+    "expected": "Dried intermediate meets LOD not more than 0.5% before it moves on to milling.",
+    "observed": "LOD 0.9%. The dryer printout shows the cycle ended about 2 hours before the time stated in the batch record.",
+    "classification": "Major",
+    "classification_rationale": "Out-of-limit in-process result at an important step. It could affect API quality if the batch had moved on. No product has left the plant.",
+    "containment": "Batch put on HOLD. Dried intermediate kept in the quarantine area and labelled. Dryer D-02 tagged 'do not use' until checked. No new batch loaded into D-02. QA informed the same day."
+  },
+  "investigation": {
+    "checklist": [
+      {
+        "item": "Reviewed the executed batch record for the drying step",
+        "done": true,
+        "finding": "Batch record states a drying time but has no step to check the dryer setpoint. Operator signed 'dryer ready'."
+      },
+      {
+        "item": "Checked dryer D-02 logbook and cycle printout",
+        "done": true,
+        "finding": "Cycle ended about 2 h early. Controller timer still held the shorter time used for the previous product."
+      },
+      {
+        "item": "Verified the LOD test itself (method, balance, analyst, sample handling)",
+        "done": true,
+        "finding": "Test done correctly, balance calibration in date. Re-test of the same sample confirmed 0.9%."
+      },
+      {
+        "item": "Interviewed operator and supervisor",
+        "done": true,
+        "finding": "Operator stopped the dryer when the controller showed 'cycle complete'. He was never told to verify the timer."
+      },
+      {
+        "item": "Checked dryer D-02 calibration and maintenance records",
+        "done": true,
+        "finding": "Temperature probe calibration in date. No equipment fault found."
+      },
+      {
+        "item": "Checked starting material lot and supplier certificate (CoA)",
+        "done": true,
+        "finding": "CoA and QC results normal. Another batch from the same lot dried normally, so the material is not the cause."
+      },
+      {
+        "item": "Searched for similar past deviations (trend check)",
+        "done": true,
+        "finding": "One earlier event on D-02 (DEV-2025-031) was closed as 'operator error, retrained'. Same type of problem."
+      }
+    ],
+    "five_whys": [
+      "The wet cake was not dried for the full time.",
+      "The dryer cycle ended about 2 hours early.",
+      "The controller timer was still set to the previous product's shorter time.",
+      "Nothing in the batch record makes the operator check or set the timer before starting. It only asks for a 'dryer ready' signature.",
+      "When the batch record was last revised the setpoint check was not included, and the earlier similar event was closed as operator error without looking at the record design."
+    ],
+    "root_cause": "Batch record design gap: no documented dryer setpoint verification before starting a cycle. The earlier similar deviation was closed with retraining only, so the system cause was never fixed.",
+    "root_cause_category": "Procedure / batch record"
+  },
+  "impact": {
+    "product_quality": "Intermediate is out of the LOD limit and may not proceed as is. Re-drying (reprocessing) is allowed only under an approved procedure with QA approval, followed by a repeat LOD and final API testing that must meet specification.",
+    "other_batches": "Reviewed the last 10 batches dried in D-02: cycle printouts match batch records and no other out-of-limit LOD results were found.",
+    "equipment": "Dryer hardware is fine. The issue is setpoint control, not an equipment fault.",
+    "customer_patient": "No material from this batch has been released or shipped. Final API testing is done before release, so no impact on distributed product."
+  },
+  "correction": {
+    "action": "Re-dry the intermediate under the QA-approved reprocessing procedure, then repeat the LOD test.",
+    "retest_done": true,
+    "retest_result": 0.3
+  },
+  "capa": {
+    "capa_id": "CAPA-2026-012",
+    "actions": [
+      {
+        "type": "Corrective",
+        "action": "Add a documented dryer setpoint check, with a second-person signature, to the drying step of the batch record.",
+        "owner": "Production Manager",
+        "due": "2026-10-20",
+        "status": "Completed"
+      },
+      {
+        "type": "Corrective",
+        "action": "Train drying-area operators and supervisors on the revised batch record.",
+        "owner": "Production Supervisor",
+        "due": "2026-10-25",
+        "status": "Completed"
+      },
+      {
+        "type": "Preventive",
+        "action": "Review batch records for all dryers and products for a missing setpoint verification step and revise where needed.",
+        "owner": "QA Documentation Lead",
+        "due": "2026-11-30",
+        "status": "In progress"
+      }
+    ]
+  },
+  "effectiveness": {
+    "plan": "Review the next 5 batches dried in D-02 and the next quarterly deviation trend: no early cycle end, no out-of-limit LOD, setpoint check signed in every record.",
+    "result": "Pending"
+  },
+  "qa": {
+    "reviewer": "QA Manager (fictional)",
+    "decision": "Approved",
+    "comments": "Root cause is supported by evidence (dryer printout, batch record design, earlier event). CAPA targets the system cause, not only retraining. Effectiveness check scheduled."
+  },
+  "release": {
+    "final_qc_passed": true,
+    "disposition": "Release",
+    "comments": "Batch meets specification after approved reprocessing. Deviation closed. CAPA continues to be tracked under CAPA-2026-012."
+  }
+}

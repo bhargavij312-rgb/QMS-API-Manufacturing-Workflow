@@ -1,0 +1,133 @@
+{
+  "batch": {
+    "batch_no": "API-2026-014",
+    "product": "Veridexol (fictional API)",
+    "manufacturing_complete": true,
+    "steps": [
+      "Charge approved starting material and solvent into the reactor",
+      "Reaction and work-up (per approved batch record)",
+      "Crystallisation and filtration",
+      "Drying of the wet cake in dryer D-02",
+      "In-process check: loss on drying (LOD) of the dried intermediate",
+      "Milling, final testing and packing"
+    ]
+  },
+  "raw_material": {
+    "name": "Starting material SM-A",
+    "lot": "SMA-0731",
+    "supplier": "Alpha Chemicals (fictional supplier)",
+    "coa_received": true,
+    "qc_status": "Approved"
+  },
+  "in_process": {
+    "test": "Loss on drying (LOD) of dried intermediate",
+    "limit_max": 0.5,
+    "unit": "% w/w, illustrative number",
+    "result": 0.9
+  },
+  "deviation": {
+    "id": "DEV-2026-007",
+    "title": "Intermediate LOD above limit after drying, batch API-2026-014",
+    "date_detected": "2026-09-22",
+    "detected_by": "QC analyst, in-process lab",
+    "area": "Drying area, dryer D-02",
+    "description": "The in-process LOD of the dried intermediate was 0.9%, above the batch record limit of not more than 0.5%.",
+    "expected": "Dried intermediate meets LOD not more than 0.5% before it moves on to milling.",
+    "observed": "LOD 0.9%. The dryer printout shows the cycle ended about 2 hours before the time stated in the batch record.",
+    "classification": "Not yet classified",
+    "classification_rationale": "",
+    "containment": ""
+  },
+  "investigation": {
+    "checklist": [
+      {
+        "item": "Reviewed the executed batch record for the drying step",
+        "done": false,
+        "finding": ""
+      },
+      {
+        "item": "Checked dryer D-02 logbook and cycle printout",
+        "done": false,
+        "finding": ""
+      },
+      {
+        "item": "Verified the LOD test itself (method, balance, analyst, sample handling)",
+        "done": false,
+        "finding": ""
+      },
+      {
+        "item": "Interviewed operator and supervisor",
+        "done": false,
+        "finding": ""
+      },
+      {
+        "item": "Checked dryer D-02 calibration and maintenance records",
+        "done": false,
+        "finding": ""
+      },
+      {
+        "item": "Checked starting material lot and supplier certificate (CoA)",
+        "done": false,
+        "finding": ""
+      },
+      {
+        "item": "Searched for similar past deviations (trend check)",
+        "done": false,
+        "finding": ""
+      }
+    ],
+    "five_whys": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "root_cause": "",
+    "root_cause_category": "Not determined"
+  },
+  "impact": {
+    "product_quality": "",
+    "other_batches": "",
+    "equipment": "",
+    "customer_patient": ""
+  },
+  "correction": {
+    "action": "",
+    "retest_done": false,
+    "retest_result": 0.0
+  },
+  "capa": {
+    "capa_id": "CAPA-2026-012",
+    "actions": [
+      {
+        "type": "Corrective",
+        "action": "",
+        "owner": "",
+        "due": "2026-10-20",
+        "status": "Open"
+      },
+      {
+        "type": "Preventive",
+        "action": "",
+        "owner": "",
+        "due": "2026-11-30",
+        "status": "Open"
+      }
+    ]
+  },
+  "effectiveness": {
+    "plan": "",
+    "result": "Pending"
+  },
+  "qa": {
+    "reviewer": "QA Manager (fictional)",
+    "decision": "Pending",
+    "comments": ""
+  },
+  "release": {
+    "final_qc_passed": false,
+    "disposition": "Pending",
+    "comments": ""
+  }
+}
